@@ -19,10 +19,11 @@
         position: absolute;
         display: flex;
         flex-direction: column;
-        width: 300px;
+        width: 380px;
+        max-height: 300px;
         font-family: 'Halvetica', sans-serif;
         right: 20px;
-        bottom: 40%;
+        top: 40%;
       }
 
       .c-info-wrapper {
@@ -30,6 +31,13 @@
         background-color: rgba(0, 0, 0, 0.6);
         border-radius: 24px;
         padding: 10px 30px;
+        height: 300px;
+        overflow: hidden;
+      }
+
+      .c-info-wrapper p {
+        height: 70%;
+        overflow-y: scroll;
       }
 
       .c-info-wrapper h4 {
@@ -75,12 +83,18 @@
           flex-direction: column-reverse;
           width: 100%;
           right: 0;
+          top: unset;
           bottom: 0;
         }
 
         .c-info-wrapper {
           margin: 20px;
           padding: 10px 30px;
+          height: 150px;
+        }
+
+        .c-info-wrapper p {
+          height: 50%;
         }
 
         .c-button-wrapper {
@@ -111,7 +125,14 @@
       <div class="c-wrapper">
         <div class="c-info-wrapper">
           <h4>SS2 v5 Assault Rifle</h4>
-          <p style="font-size: 12px; font-weight: 300; line-height: 18px;">A compact version of the SS2-V1. Unveiled at the Indo Defence & Aerospace exhibition in 2008.</p>
+          <p style="font-size: 12px; font-weight: 300; line-height: 18px;">
+            The SS2 (short for Senapan Serbu 2, lit. 'Assault Rifle 2') is a replacement for the Pindad SS1 created by Pindad.[4] It had been seen during the ASEAN Army Rifles contest by foreign media in 2006[5] aside from exposure by local Indonesian media.
+            The SS2 assault rifles are currently being brought into service with the Indonesian military and police. They will gradually replace the SS1 assault rifles which have been in service with the security forces since the 1990s.
+            A compact version of the SS2-V1. Unveiled at the Indo Defence & Aerospace exhibition in 2008.<br>
+            The SS2 (short for Senapan Serbu 2, lit. 'Assault Rifle 2') is a replacement for the Pindad SS1 created by Pindad.[4] It had been seen during the ASEAN Army Rifles contest by foreign media in 2006[5] aside from exposure by local Indonesian media.
+            The SS2 assault rifles are currently being brought into service with the Indonesian military and police. They will gradually replace the SS1 assault rifles which have been in service with the security forces since the 1990s.
+            A compact version of the SS2-V1. Unveiled at the Indo Defence & Aerospace exhibition in 2008.
+          </p>
         </div>
         <div class="c-button-wrapper">
           <a href="/markerbased.html" class="button markerbase" target="_self">
