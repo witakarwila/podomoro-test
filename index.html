@@ -8,20 +8,117 @@
     <link type="text/css" href="./styles.css" rel="stylesheet"/>
     <!-- OPTIONAL: The :focus-visible polyfill removes the focus ring for some input types -->
     <script src="https://cdn.jsdelivr.net/npm/focus-visible@5.0.2/dist/focus-visible.js" defer></script>
+    <style>
+      model-viewer {
+        background-color: #1E1E1E;
+        background: url('assets/Union.png') center center no-repeat, radial-gradient(50% 50% at 50% 50%, rgba(118, 118, 118, 0.3) 0%, rgba(118, 118, 118, 0) 100%), #1E1E1E ;
+        color: #fafafa;
+      }
+
+      .c-wrapper {
+        position: absolute;
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        font-family: 'Halvetica', sans-serif;
+        right: 20px;
+        bottom: 40%;
+      }
+
+      .c-info-wrapper {
+        max-width: 100%;
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 24px;
+        padding: 10px 30px;
+      }
+
+      .c-info-wrapper h4 {
+        font-size: 16px;
+        font-weight: 500;
+      }
+
+      .c-button-wrapper {
+        display: none;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 20px 0px;
+      }
+
+      .c-wrapper .c-button-wrapper .button {
+        display: flex;
+        align-items: center;
+        border-radius: 12px; 
+        border: 0; 
+        padding: 5px 16px; 
+        font-weight: 500; 
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      .button img {
+        height: 20px;
+      }
+
+      .button.markerless {
+        background-color: #31C4C4;
+        color: #1E1E1E;
+      }
+
+      .button.markerbase {
+        background-color: #747474;
+        color: #FAFAFA;
+      }
+
+      @media only screen and (max-width: 820px) {
+        .c-wrapper {
+          display: flex;
+          flex-direction: column-reverse;
+          width: 100%;
+          right: 0;
+          bottom: 0;
+        }
+
+        .c-info-wrapper {
+          margin: 20px;
+          padding: 10px 30px;
+        }
+
+        .c-button-wrapper {
+          padding: 0px 20px;
+        }
+      }
+
+    </style>
   </head>
   <body>
     <!-- <model-viewer> HTML element -->
-    <model-viewer src="assets/ss2_v5_assault_rifle.glb" ar ar-modes="scene-viewer webxr quick-look" camera-controls poster="assets/poster.webp" shadow-intensity="1">
-      <h1 class="title" style="display: block; text-align: center; font-family:'Arial', Helvetica, sans-serif;">SS2 v5 Assault Rifle AR Prototype</h1>
-      <h5 class="title" style="display: block; text-align: center; font-family:'Arial', Helvetica, sans-serif;">by PT. Teknologi Cakra Internasional</h5>  
+    <model-viewer src="assets/ss2_v5_assault_rifle.glb" autoplay ar ar-modes="scene-viewer webxr quick-look" camera-controls loading="eager" poster="assets/poster.webp" shadow-intensity="1" camera-orbit="83.17deg 82.75deg 9.802m" field-of-view="30deg">
+      <div style="width: 150px;height: auto;padding: 20px;">
+        <img src="assets/quantumxr-logo-black-bg.png" alt="QuantumXR's Logo" style="width: 100%;">
+      </div>
+
       <div class="progress-bar hide" slot="progress-bar">
           <div class="update-bar"></div>
       </div>
-      <button slot="ar-button" id="ar-button">
-          View in AR
-      </button>
       <div id="ar-prompt">
           <img src="assets/ar_hand_prompt.png">
+      </div>
+
+      <button class="button markerless" slot="ar-button" id="ar-button">
+        &nbsp;&nbsp;Launch AR
+      </button>
+
+      <div class="c-wrapper">
+        <div class="c-info-wrapper">
+          <h4>SS2 v5 Assault Rifle</h4>
+          <p style="font-size: 12px; font-weight: 300; line-height: 18px;">A compact version of the SS2-V1. Unveiled at the Indo Defence & Aerospace exhibition in 2008.</p>
+        </div>
+        <div class="c-button-wrapper">
+          <a href="/markerbased.html" class="button markerbase" target="_self">
+            <img src="assets/icon-markerbased.png" alt="Launch AR icon">
+            &nbsp;&nbsp;Scan Marker
+          </a>
+        </div>
       </div>
     </model-viewer>  
     <script src="script.js"></script>
