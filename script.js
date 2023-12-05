@@ -37,10 +37,10 @@ const handleARButtonClick = () => {
 //   reader.readAsDataURL(file);
 // }
 
-var startTime = new Date.now();
+var startTime = Date.now();
 var endTime;
 document.querySelector('model-viewer').addEventListener('load', () => {
-  endTime = new Date.now();
+  endTime = Date.now();
 
   console.log(endTime - startTime);
 });
