@@ -1,3 +1,4 @@
+
 // Handles loading the events for <model-viewer>'s slotted progress bar
 const onProgress = (event) => {
   const progressBar = event.target.querySelector('.progress-bar');
@@ -20,5 +21,24 @@ const handleARButtonClick = () => {
   }
 };
 
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
+fetch('assets/azalea.glb')
+    .then(response => response.blob())
+    .then(blob => {
+      fileToBase64(blob, function(base64) {
+        document.querySelector('model-viewer').setAttribute('src', base64);
+        document.querySelector('model-viewer').addEventListener('progress', onProgress);
+      });
+    })
+    .catch(error => console.error('Error:', error));
+
+function fileToBase64(file, callback) {
+  var reader = new FileReader();
+  reader.onload = function(event) {
+    callback(event.target.result);
+  };
+  reader.readAsDataURL(file);
+}
+
+
+
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
