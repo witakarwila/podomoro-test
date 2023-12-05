@@ -49,8 +49,10 @@ const onloadModelViewer = () => {
 
   document.querySelector('model-viewer').setAttribute('src', 'assets/azalea.glb');
   document.querySelector('model-viewer').addEventListener('progress', onProgress);
+  document.querySelector('model-viewer').scale = `${0.1} ${0.1} ${0.1}`;
 
 }
+
 
 
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
