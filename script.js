@@ -10,9 +10,6 @@ const onProgress = (event) => {
     progressBar.classList.remove('hide');
   }
 };
-<<<<<<< HEAD
-document.querySelector('model-viewer').addEventListener('progress', onProgress);
-=======
 
 const handleARButtonClick = () => {
   if (document.querySelector('model-viewer').canActivateAR) {
@@ -25,4 +22,3 @@ const handleARButtonClick = () => {
 
 document.querySelector('model-viewer').addEventListener('progress', onProgress);
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
->>>>>>> 3cc2cc1 (button ar)
