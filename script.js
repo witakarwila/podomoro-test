@@ -21,24 +21,31 @@ const handleARButtonClick = () => {
   }
 };
 
-fetch('assets/azalea.glb')
-    .then(response => response.blob())
-    .then(blob => {
-      fileToBase64(blob, function(base64) {
-        document.querySelector('model-viewer').setAttribute('src', base64);
-        document.querySelector('model-viewer').addEventListener('progress', onProgress);
-      });
-    })
-    .catch(error => console.error('Error:', error));
+// fetch('assets/azalea.glb')
+//     .then(response => response.blob())
+//     .then(blob => {
+//       fileToBase64(blob, function(base64) {
+//       });
+//     })
+//     .catch(error => console.error('Error:', error));
 
-function fileToBase64(file, callback) {
-  var reader = new FileReader();
-  reader.onload = function(event) {
-    callback(event.target.result);
-  };
-  reader.readAsDataURL(file);
-}
+// function fileToBase64(file, callback) {
+//   var reader = new FileReader();
+//   reader.onload = function(event) {
+//     callback(event.target.result);
+//   };
+//   reader.readAsDataURL(file);
+// }
+
+var startTime = new Date.now();
+var endTime;
+document.querySelector('model-viewer').addEventListener('load', () => {
+  endTime = new Date.now();
+
+  console.log(endTime - startTime);
+});
 
 
-
+document.querySelector('model-viewer').setAttribute('src', 'assets/azalea.glb');
+document.querySelector('model-viewer').addEventListener('progress', onProgress);
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
