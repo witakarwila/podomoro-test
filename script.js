@@ -1,3 +1,4 @@
+var modelViewer = document.querySelector('model-viewer');
 
 // Handles loading the events for <model-viewer>'s slotted progress bar
 const onProgress = (event) => {
@@ -21,6 +22,21 @@ const handleARButtonClick = () => {
   }
 };
 
+// Load the model using a secure fetch request
+fetch('assets/azalea.glb')
+  .then(response => response.blob())
+  .then(blob => {
+    // Create a URL object from the Blob
+    const modelBlobUrl = URL.createObjectURL(blob);
+
+    // Set the model source using the Blob URL
+    // modelViewer.src = modelBlobUrl;
+    onloadModelViewer(modelBlobUrl)
+  })
+  .catch(error => {
+    console.error('Error loading model:', error);
+  });
+
 fetch('assets/azalea.glb')
     .then(response => response.blob())
     .then(blob => {
@@ -38,7 +54,7 @@ function fileToBase64(file, callback) {
   reader.readAsDataURL(file);
 }
 
-const onloadModelViewer = () => {
+const onloadModelViewer = (blobFile) => {
   var startTime = Date.now();
   var endTime;
   document.querySelector('model-viewer').addEventListener('load', () => {
@@ -46,13 +62,15 @@ const onloadModelViewer = () => {
 
     console.log(endTime - startTime);
   });
-
-  document.querySelector('model-viewer').setAttribute('src', 'assets/azalea.glb');
+  
+  document.querySelector('model-viewer').setAttribute('src', blobFile);
   document.querySelector('model-viewer').addEventListener('progress', onProgress);
   // document.querySelector('model-viewer').scale = `${0.1} ${0.1} ${0.1}`;
 
 }
 
-
+modelViewer.addEventListener('camera-change', (event) => {
+  console.log(event);
+});
 
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
