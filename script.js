@@ -37,22 +37,22 @@ fetch('assets/azalea.glb')
     console.error('Error loading model:', error);
   });
 
-fetch('assets/azalea.glb')
-    .then(response => response.blob())
-    .then(blob => {
-      fileToBase64(blob, function(base64) {
-        onloadModelViewer()
-      });
-    })
-    .catch(error => console.error('Error:', error));
+// fetch('assets/azalea.glb')
+//     .then(response => response.blob())
+//     .then(blob => {
+//       fileToBase64(blob, function(base64) {
+//         onloadModelViewer()
+//       });
+//     })
+//     .catch(error => console.error('Error:', error));
 
-function fileToBase64(file, callback) {
-  var reader = new FileReader();
-  reader.onload = function(event) {
-    callback(event.target.result);
-  };
-  reader.readAsDataURL(file);
-}
+// function fileToBase64(file, callback) {
+//   var reader = new FileReader();
+//   reader.onload = function(event) {
+//     callback(event.target.result);
+//   };
+//   reader.readAsDataURL(file);
+// }
 
 const onloadModelViewer = (blobFile) => {
   var startTime = Date.now();
@@ -69,8 +69,8 @@ const onloadModelViewer = (blobFile) => {
 
 }
 
-modelViewer.addEventListener('camera-change', (event) => {
-  console.log(event);
-});
+// modelViewer.addEventListener('camera-change', (event) => {
+//   console.log(event);
+// });
 
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
