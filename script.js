@@ -73,4 +73,9 @@ const onloadModelViewer = (blobFile) => {
 //   console.log(event);
 // });
 
+const updateScale = () => {
+  document.querySelector('model-viewer').scale = `${1} ${1} ${1}`;
+};
+
 document.querySelector('#ar-button').addEventListener('click', handleARButtonClick);
+document.querySelector('#btnScale').addEventListener('click', updateScale)
